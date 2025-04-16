@@ -3,24 +3,23 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout />
-
 <section>
   <div class="kontakt">
-    <div>
-      <h3>Kontakt</h3>
-      <img src="" alt="billede af nikolaj" />
-    </div>
+    <h3>Kontakt</h3>
+    <div class="grid_1-2">
+      <img src="../../src/assets/nikolaj.svg" alt="billede af nikolaj" />
 
-    <div>
-      <p class="bold">Nikolaj Storm Hauge Tost</p>
-      <p class="lighter">Email: nito@kea.dk</p>
+      <div class="text">
+        <p class="bold">Nikolaj Storm Hauge Tost</p>
+        <p class="lighter">E-mail: nito@kea.dk</p>
+      </div>
     </div>
   </div>
 
   <div class="instagram">
     <h3>Følg os på Instagram</h3>
     <div>
-      <img src="" alt="logo" />
+      <img src="../../src/assets/instagram.svg" alt="logo" />
       <a href="https://www.instagram.com/kea_circularlab/?hl=da"
         >@kea.circularlab</a
       >
@@ -32,7 +31,15 @@ import Layout from "../layouts/Layout.astro";
   section {
     background-color: #ededed;
     padding: 40px;
+    padding-left: 100px;
+    padding-right: 100px;
     gap: 40px;
+    display: grid;
+  }
+  @media (min-width: 800px) {
+    section {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 
   h3,
@@ -59,11 +66,18 @@ import Layout from "../layouts/Layout.astro";
       align-items: flex-start;
     }
 
-    .kontakt {
-      padding-left: 200px;
-    }
-    .instagram {
-      padding-right: 250px;
-    }
+  .instagram img {
+    height: 30px;
+  }
+
+  .grid_1-2 {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+  }
+
+  .text {
+    align-items: center;
+    padding-top: 20px;
   }
 </style>
