@@ -1,11 +1,34 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+//@ts-nocheck
+// overstående betyder at der ikke kommer typscript - aner ikke hvad det er, men det er noget man altid skal undgå om man skal ikke vide hvorfor
+import Layout from "../layouts/Layout.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+
+const url =
+  "https://gwqwouhralyrmhekplrw.supabase.co/rest/v1/Kalender?select=*";
+const key =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd3cXdvdWhyYWx5cm1oZWtwbHJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQyNzYzMTUsImV4cCI6MjA1OTg1MjMxNX0.2_OFBY8EPNNKrx3YH4-Ubx0HO8XBKvaLZOThHaMkA6g";
+
+const options = {
+  headers: {
+    //det der står oppe i 'linket' på hjemmesiden
+    apikey: key,
+  },
+};
+
+const data = await fetch(url, options).then((res) => {
+  return res.json();
+});
+// await betyder den venter med at gøre noget indtil alt er loadet
+// fetch gør at den hender det der står - i dette tilfælde constanteren url og options. options er der key ligger
+// res betyder den henter resultatet som json
+
+console.log(data);
+//skal skrive console.log
 ---
 
 <Layout>
-	<Welcome />
+  <h1>hej</h1>
 </Layout>
