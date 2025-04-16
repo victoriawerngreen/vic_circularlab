@@ -1,7 +1,13 @@
 ---
 //@ts-nocheck
 // overstående betyder at der ikke kommer typscript - aner ikke hvad det er, men det er noget man altid skal undgå om man skal ikke vide hvorfor
+import Material from "../components/Material.astro";
 import Layout from "../layouts/Layout.astro";
+import Harmonika from "../components/Harmonika.astro";
+import Adgang from "../components/Adgang.astro";
+import Footer from "../components/Footer.astro";
+import Intro from "../components/Intro.astro";
+import Kontakt from "../components/Kontakt.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -30,5 +36,10 @@ console.log(data);
 ---
 
 <Layout>
-  <h1>hej</h1>
+  <Intro />
+  <Material />
+  <Adgang />
+  <Harmonika />
+  <Kontakt />
+  <Footer />
 </Layout>

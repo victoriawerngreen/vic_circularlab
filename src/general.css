@@ -1,0 +1,19 @@
+/*root indstillinger*/
+:root {
+  --navy: #233249;
+  --lightblue: #5dc4e5;
+  --orange: #ec6501;
+  --white: #ffffff;
+  --grey: #ededed;
+  --font: Helvetica Neue;
+
+  --h1d: 50px;
+  --h1m: 25px;
+  --h2d: 40px;
+  --h2m: 18px;
+  --h3d: 25px;
+  --h3m: 15px;
+  --p: 20px;
+
+  --pcitat: 64px;
+}
