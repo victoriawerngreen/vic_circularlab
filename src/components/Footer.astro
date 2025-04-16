@@ -1,0 +1,78 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout />
+
+<section>
+  <div class="info">
+    <h4>KEA - Københavns Erhvervsakademi</h4>
+    <p>Guldbergsgade 29N</p>
+    <p>2200 København N</p>
+    <p class="bold">Du skal ikke bare vide.</p>
+    <p class="bold">Du skal kunne.</p>
+    <p>logoer</p>
+  </div>
+
+  <div class="info">
+    <h4>Vejledning</h4>
+    <p>Studieadminstrationen</p>
+    <p>Studie- og Karrierevejledning</p>
+    <p>SPS (specialpædagogisk støtte)</p>
+    <p>SU-vejledning</p>
+    <p>Praktik</p>
+  </div>
+
+  <div class="info">
+    <h4>Relevante links</h4>
+    <p>KEA Webmail</p>
+    <p>KEA Bibliotek</p>
+    <p>Studieviden</p>
+    <p>Itslearning</p>
+    <p>Fag- og modulkatalog</p>
+    <p>Studieaktivitetsmodel</p>
+    <p>PARIS-aftalen</p>
+    <p>Ordensregler</p>
+  </div>
+
+  <div class="info">
+    <h4>Praktisk info</h4>
+    <p>Cookies og privatliv</p>
+    <p>Persondatapolitik</p>
+    <p>Tilgængelighedserklæring</p>
+    <p>Find vej på KEA</p>
+  </div>
+</section>
+
+<style>
+  section {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #233249;
+    color: #ffffff;
+    padding: 20px;
+  }
+
+  p,
+  h4 {
+    font-family: Helvetica, sans-serif;
+  }
+
+  .bold {
+    font-weight: bold;
+  }
+
+  .info {
+    padding-bottom: 20px;
+  }
+
+  @media (min-width: 800px) {
+    section {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      padding: 80px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+  }
+</style>
