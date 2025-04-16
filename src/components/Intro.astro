@@ -1,0 +1,122 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout />
+<section class="section-container">
+  <img class="greencircle" src="/src/assets/green.svg" alt="greencircle" />
+  <h1>Hvad er Circular Lab</h1>
+  <div class="grid">
+    <p class="line-1">
+      I Circular Lab på KEA arbejder vi med cirkularitet - at genbruge
+      ressourcer, reparere produkter og omdanne affald til nye muligheder.
+    </p>
+    <p>
+      Her kan du lære at fikse tøj, upcycle materialer og designe bæredygtigt.
+      Kom og eksperimentér, og vær med til at skabe en smartere, mere bæredygtig
+      fremtid. Så kom og leg, lær og eksperimentér i Circular Lab.
+    </p>
+  </div>
+  <div class="grid_1-1">
+    <p class="citat">"Giv dit tøj nyt liv og <br /> smil til verden"</p>
+    <a href="">Se vores kalender</a>
+  </div>
+</section>
+
+<style>
+  section {
+    position: relative; /* Gør så vi kan placere tekst ovenpå svg */
+    /* background-image: url(/src/assets/green.svg); */
+    background-repeat: no-repeat;
+    background-position:;
+    padding: 20px;
+    padding-bottom: 80px;
+  }
+
+  .greencircle {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    right: 0;
+    width: 100%; /* Gør SVG-billedet til at fylde hele bredden af sektionen */
+    height: 100vh; /* Sætter højden på billedet */
+    object-fit: cover; /* Sørger for, at billedet fylder containeren korrekt */
+    z-index: -1; /* Placerer SVG'en bag teksten */
+  }
+
+  h1 {
+    color: white;
+    position: relative;
+    text-align: center;
+    z-index: 1; /* Sørger for, at teksten vises foran SVG-billedet */
+  }
+
+  .line-1 {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  p {
+    color: white;
+    font-size: 20px;
+  }
+
+  .grid {
+    position: relative;
+    z-index: 1;
+    max-width: 1000px;
+  }
+
+  a {
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: none;
+    border: 1px solid black;
+    color: white;
+    background-color: #ec6501;
+    padding: 15px 30px 15px 30px;
+    border-radius: 5px;
+    display: block;
+    max-width: 150px;
+  }
+
+  a:hover {
+    color: #ffffff;
+    background-color: #233249;
+  }
+
+  .citat {
+    font-style: italic;
+    font-size: 20px;
+    color: #233249;
+    margin: 0 0 0 220px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  @media (min-width: 800px) {
+    h1 {
+      margin: 0 500px 20px 0;
+    }
+
+    .greencircle {
+      left: -30%;
+    }
+
+    p {
+      margin: 0 100px 20px 150px;
+    }
+
+    a {
+      margin: -100px 0 0 400px;
+    }
+
+    .citat {
+      margin: 100px 0 0 950px;
+      font-size: 50px;
+    }
+  }
+</style>
