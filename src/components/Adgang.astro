@@ -4,6 +4,7 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout />
 <section class="material_connexion">
+  <img class="lightcircle" src="/src/assets/lightblue.svg" alt="lightcircle" />
   <div class="grid_3-2">
     <div>
       <h1>Adgang til Circular Lab</h1>
@@ -49,6 +50,11 @@ import Layout from "../layouts/Layout.astro";
     color: #ffffff;
     padding: 30px;
     display: grid;
+  }
+
+  .lightcircle {
+    position: absolute;
+    z-index: 0;
   }
 
   a {
@@ -101,6 +107,7 @@ import Layout from "../layouts/Layout.astro";
     .grid_3-2 {
       display: flex;
       flex-direction: column;
+      z-index: 5;
     }
   }
   /* ------------ media-query ------------ */

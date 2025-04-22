@@ -1,72 +1,90 @@
 ---
 //@ts-nocheck
-import Layout from "../layouts/Layout.astro";
+import Layout from "../../layouts/Layout.astro";
+import Footer from "../../components/Footer.astro";
+
+export async function getStaticPaths() {
+  //   const response = await fetch('...');
+  //   const data = await response.json();
+  const url =
+    "https://gwqwouhralyrmhekplrw.supabase.co/rest/v1/Kalender?select=*";
+  const key =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd3cXdvdWhyYWx5cm1oZWtwbHJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQyNzYzMTUsImV4cCI6MjA1OTg1MjMxNX0.2_OFBY8EPNNKrx3YH4-Ubx0HO8XBKvaLZOThHaMkA6g";
+
+  const options = {
+    headers: {
+      apikey: key,
+    },
+  };
+
+  const data = await fetch(url, options).then((res) => res.json());
+
+  return data.map((event) => {
+    return {
+      params: { slug: event.slug },
+      props: { event },
+    };
+  });
+}
+
 const { event } = Astro.props;
 ---
 
-<Layout />
+<!-- title er det der står som navn i fanebladet i google chrome -->
+<Layout title={event.title}>
+  <section class="hero">
+    <img src="" alt="" />
+  </section>
+  <div class="vertikal">
+    <h2>{event.type}</h2>
+  </div>
+  <section class="white-background">
+    <h1>{event.title}</h1>
+    <h3>For alle studerende og medarbejdere på KEA, uanset studieretning.</h3>
+    <!-- <p class="line_1">
+      Repair Café i Circular Lab hvor vi arbejder med den cirkulære
+      forretningmodel "reparation". På denne workshop har vi fokus på lapning af
+      tekstiler.
+    </p> -->
 
-<section class="hero">
-  <img src="" alt="" />
-</section>
-<div class="vertikal">
-  <h2>{event.type}</h2>
-</div>
-<section class="white-background">
-  <h1>{event.title}</h1>
-  <h3>For alle studerende og medarbejdere på KEA, uanset studieretning.</h3>
-  <p class="line_1">
-    Repair Café i Circular Lab hvor vi arbejder med den cirkulære
-    forretningmodel "reparation". På denne workshop har vi fokus på lapning af
-    tekstiler.
-  </p>
-
-  <p>
-    Vil du gerne lære mere om cirkulære strategier inden for reperation? Vil du
-    gerne lære hvordan man kan reparere sit tøj ved hjælp af lapper og tråd? Så
-    kom med til Circular Labs Repair Café, hvor du lærer forskellige teknikker
-    du kan bruge til at reparere dit tøj eller opgradere det til noget endnu
-    bedre.
-    <br />
-    Se hvad du har af ting i klædeskabet der trænger til en overhaling, måske har
-    du hul i et par bukser, måske en skjorte der kunne klare lidt ekstra gas eller
-    en jakke med revne i foret - så kigger vi på det i fællesskab og du lærer teknikker
-    til hvordan du selv kan fikse tøjet og derved forlænge levetiden af dit klædeskab.
-    Du behøver ikke have nogen erfaring med at sy for, at deltage. <br /> Du skal
-    selv medbringe tøjet du enten vil reparere eller dekorere med de teknikker du
-    lærer.
-  </p>
-  <h3 class="lokation">
-    Caféen afholdes i Circular Lab på Guldbergsgade 29N i lokale GBG.A129 <br
-    />Kl. 14.00 - 16.00
-  </h3>
-  <a class="tilmeld" href="">Tilmeld dig her</a>
-</section>
-<img class="orangecircle" src="/src/assets/orange.svg" alt="" />
-<h3 class="workshop-name">Workshoppen faciliteres af</h3>
-<section class="down-section">
-  <div class="person">
-    <img src="../../src/assets/nikolaj.svg" alt="billede af nikolaj" />
-    <div class="text">
-      <p class="bold">Nikolaj Storm Hauge Tost</p>
-      <p class="lighter">E-mail: nito@kea.dk</p>
+    <p>
+      {event.description}
+    </p>
+    <h3 class="lokation">
+      {event.extrainfo} Guldbergsgade 29N i lokale GBG.A129 <br />Kl. {
+        event.start
+      } -
+      {event.end}
+    </h3>
+    <a class="tilmeld" href="">Tilmeld dig her</a>
+  </section>
+  <img class="orangecircle" src="/src/assets/orange.svg" alt="" />
+  <h3 class="workshop-name">Workshoppen faciliteres af</h3>
+  <section class="down-section">
+    <div class="person">
+      <img src="../../src/assets/nikolaj.svg" alt="billede af nikolaj" />
+      <div class="text">
+        <p class="bold">Nikolaj Storm Hauge Tost</p>
+        <p class="lighter">E-mail: nito@kea.dk</p>
+      </div>
+    </div>
+    <div class="person">
+      <img src="../../src/assets/stine.svg" alt="billede af nikolaj" />
+      <div class="text">
+        <p class="bold">Stine Rørbech</p>
+        <p class="lighter">E-mail: stro@kea.dk</p>
+      </div>
+    </div>
+  </section>
+  <div class="instagram">
+    <h3 class="overskrift-insta">Følg os på Instagram</h3>
+    <div class="insta-wrapper">
+      <img class="logo" src="../../src/assets/instagram.svg" alt="logo" />
+      <a class="instagram-link" href="">@kea.circularlab</a>
     </div>
   </div>
-  <div class="person">
-    <img src="../../src/assets/stine.svg" alt="billede af stine" />
-    <div class="text">
-      <p class="bold">Stine Rørbech</p>
-      <p class="lighter">E-mail: stro@kea.dk</p>
-    </div>
-  </div>
-</section>
-<div class="instagram">
-  <h3 class="overskrift-insta">Følg os på Instagram</h3>
-  <div class="insta-wrapper">
-    <img class="logo" src="../../src/assets/instagram.svg" alt="logo" />
-    <a class="instagram-link" href="">@kea.circularlab</a>
-  </div>
-</div>
+  <Footer />
+</Layout>
 
 <style>
   body {
@@ -144,7 +162,7 @@ const { event } = Astro.props;
     left: 0;
     right: 0;
     width: 100%; /* Gør SVG-billedet til at fylde hele bredden af sektionen */
-    height: 100vh; /* Sætter højden på billedet */
+    height: 170vh; /* Sætter højden på billedet */
     object-fit: fill; /* Sørger for, at billedet fylder containeren korrekt */
     z-index: -1; /* Placerer SVG'en bag teksten */
   }

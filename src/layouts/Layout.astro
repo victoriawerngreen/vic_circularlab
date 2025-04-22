@@ -1,3 +1,8 @@
+---
+const { title } = Astro.props;
+import "../general.css";
+---
+
 <!doctype html>
 <html lang="da">
   <head>
@@ -5,8 +10,13 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <link rel="stylesheet" href="/src/general.css" />
-    <title>Astro Basics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Afacad:ital,wght@0,400..700;1,400..700&family=Dongle&family=Jaldi:wght@400;700&family=Krona+One&family=Modak&family=Outfit:wght@100..900&family=Oxygen:wght@300;400;700&family=Prata&family=Quicksand:wght@300..700&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Circular Lab</title>
   </head>
   <body>
     <slot />
