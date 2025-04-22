@@ -1,0 +1,281 @@
+---
+//@ts-nocheck
+import Layout from "../../layouts/Layout.astro";
+import Footer from "../../components/Footer.astro";
+
+export async function getStaticPaths() {
+  //   const response = await fetch('...');
+  //   const data = await response.json();
+  const url =
+    "https://gwqwouhralyrmhekplrw.supabase.co/rest/v1/Kalender?select=*";
+  const key =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd3cXdvdWhyYWx5cm1oZWtwbHJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQyNzYzMTUsImV4cCI6MjA1OTg1MjMxNX0.2_OFBY8EPNNKrx3YH4-Ubx0HO8XBKvaLZOThHaMkA6g";
+
+  const options = {
+    headers: {
+      apikey: key,
+    },
+  };
+
+  const data = await fetch(url, options).then((res) => res.json());
+
+  return data.map((event) => {
+    return {
+      params: { slug: event.slug },
+      props: { event },
+    };
+  });
+}
+
+const { event } = Astro.props;
+---
+
+<!-- title er det der står som navn i fanebladet i google chrome -->
+<Layout title={event.title}>
+  <section class="hero">
+    <img src="" alt="" />
+  </section>
+  <div class="vertikal">
+    <h2>{event.type}</h2>
+  </div>
+  <section class="white-background">
+    <h1>{event.title}</h1>
+    <h3>For alle studerende og medarbejdere på KEA, uanset studieretning.</h3>
+    <!-- <p class="line_1">
+      Repair Café i Circular Lab hvor vi arbejder med den cirkulære
+      forretningmodel "reparation". På denne workshop har vi fokus på lapning af
+      tekstiler.
+    </p> -->
+
+    <p>
+      {event.description}
+    </p>
+    <h3 class="lokation">
+      {event.extrainfo} Guldbergsgade 29N i lokale GBG.A129 <br />Kl. {
+        event.start
+      } -
+      {event.end}
+    </h3>
+    <a class="tilmeld" href="">Tilmeld dig her</a>
+  </section>
+  <img class="orangecircle" src="/src/assets/orange.svg" alt="" />
+  <h3 class="workshop-name">Workshoppen faciliteres af</h3>
+  <section class="down-section">
+    <div class="person">
+      <img src="../../src/assets/nikolaj.svg" alt="billede af nikolaj" />
+      <div class="text">
+        <p class="bold">Nikolaj Storm Hauge Tost</p>
+        <p class="lighter">E-mail: nito@kea.dk</p>
+      </div>
+    </div>
+    <div class="person">
+      <img src="../../src/assets/stine.svg" alt="billede af nikolaj" />
+      <div class="text">
+        <p class="bold">Stine Rørbech</p>
+        <p class="lighter">E-mail: stro@kea.dk</p>
+      </div>
+    </div>
+  </section>
+  <div class="instagram">
+    <h3 class="overskrift-insta">Følg os på Instagram</h3>
+    <div class="insta-wrapper">
+      <img class="logo" src="../../src/assets/instagram.svg" alt="logo" />
+      <a class="instagram-link" href="">@kea.circularlab</a>
+    </div>
+  </div>
+  <Footer />
+</Layout>
+
+<style>
+  body {
+    background-color: #ededed;
+    margin: 20px;
+  }
+
+  h1 {
+    text-align: center;
+    color: #233249;
+    font-size: 30px;
+  }
+
+  h2 {
+    display: none;
+  }
+
+  h3,
+  h4 {
+    text-align: center;
+    font-style: italic;
+    color: #233249;
+    font-weight: lighter;
+    font-size: 25px;
+  }
+
+  .line_1 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  br {
+    margin-bottom: 15px;
+  }
+
+  p {
+    color: #233249;
+  }
+
+  .tilmeld {
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: none;
+    border: 1px solid black;
+    color: white;
+    background-color: #79bf80;
+    padding: 15px 30px 15px 30px;
+    border-radius: 5px;
+    display: block;
+    max-width: 150px;
+    margin: 0 auto;
+  }
+
+  a:hover {
+    color: #ffffff;
+    background-color: #ec6501;
+  }
+
+  .white-background {
+    background-color: white;
+    height: 830px;
+    width: 420px;
+    padding: 20px;
+  }
+
+  .lokation {
+    text-align: end;
+  }
+
+  .orangecircle {
+    position: absolute;
+    top: 120%;
+    left: 0;
+    right: 0;
+    width: 100%; /* Gør SVG-billedet til at fylde hele bredden af sektionen */
+    height: 170vh; /* Sætter højden på billedet */
+    object-fit: fill; /* Sørger for, at billedet fylder containeren korrekt */
+    z-index: -1; /* Placerer SVG'en bag teksten */
+  }
+
+  .down-section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .person {
+    display: flex;
+    align-items: center;
+    margin: 20px 0 20px 0;
+  }
+
+  .text {
+    padding: 0 0 0 20px;
+  }
+
+  img {
+    width: 40%;
+  }
+
+  .workshop-name {
+    margin: 130px 170px 0 0;
+  }
+
+  .overskrift-insta {
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    margin: 60px 60px 0 0;
+  }
+
+  .instagram-link {
+    font-family: Helvetica, sans-serif;
+    color: #233249;
+    text-decoration: none;
+    margin: 0 0 0 10px;
+    font-size: 20px;
+    position: relative;
+    top: -7px;
+  }
+
+  .logo {
+    margin: 20px 0 0 100px;
+    width: 30px;
+  }
+
+  .bold {
+    font-weight: bold;
+  }
+
+  .lighter {
+    font-weight: lighter;
+  }
+
+  @media (min-width: 800px) {
+    .vertikal {
+      position: relative;
+    }
+
+    img {
+      width: 15%;
+    }
+
+    .workshop-name {
+      margin: 80px 170px 20px 0;
+    }
+
+    .orangecircle {
+      position: absolute;
+      top: 100%;
+      left: -25%;
+      right: 0;
+    }
+
+    h2 {
+      display: block;
+      position: absolute;
+      transform: rotate(270deg);
+      top: 500px;
+      transform-origin: left top;
+      white-space: nowrap;
+      font-size: 110px;
+      margin-left: 50px;
+      color: #233249;
+    }
+
+    .white-background {
+      margin-left: 600px;
+      width: 700px;
+      padding: 40px;
+      height: 650px;
+    }
+
+    h1,
+    h3 {
+      text-align: start;
+    }
+
+    .tilmeld {
+      margin-top: 60px;
+    }
+
+    .instagram {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      margin: -400px 300px 0 0;
+    }
+
+    .insta-wrapper {
+      margin: 0 90px 0 0;
+    }
+  }
+</style>

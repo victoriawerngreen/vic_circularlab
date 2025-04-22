@@ -1,0 +1,83 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout />
+<section>
+  <div class="kontakt">
+    <h3>Kontakt</h3>
+    <div class="grid_1-2">
+      <img src="../../src/assets/nikolaj.svg" alt="billede af nikolaj" />
+
+      <div class="text">
+        <p class="bold">Nikolaj Storm Hauge Tost</p>
+        <p class="lighter">E-mail: nito@kea.dk</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="instagram">
+    <h3>Følg os på Instagram</h3>
+    <div>
+      <img src="../../src/assets/instagram.svg" alt="logo" />
+      <a href="https://www.instagram.com/kea_circularlab/?hl=da"
+        >@kea.circularlab</a
+      >
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    background-color: #ededed;
+    padding: 40px;
+    padding-left: 100px;
+    padding-right: 100px;
+    gap: 40px;
+    display: grid;
+  }
+  @media (min-width: 800px) {
+    section {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  h3,
+  p,
+  a,
+  img {
+    font-family: Helvetica, sans-serif;
+    color: #233249;
+    text-decoration: none;
+  }
+
+  .bold {
+    font-weight: bold;
+  }
+  .lighter {
+    font-weight: lighter;
+  }
+
+  @media (min-width: 800px) {
+    section {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+  .instagram img {
+    height: 30px;
+  }
+
+  .grid_1-2 {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+  }
+
+  .text {
+    align-items: center;
+    padding-top: 20px;
+  }
+</style>

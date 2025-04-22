@@ -1,0 +1,67 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Event from "../components/Event.astro";
+const url =
+  "https://gwqwouhralyrmhekplrw.supabase.co/rest/v1/Kalender?select=*";
+
+const key =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd3cXdvdWhyYWx5cm1oZWtwbHJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQyNzYzMTUsImV4cCI6MjA1OTg1MjMxNX0.2_OFBY8EPNNKrx3YH4-Ubx0HO8XBKvaLZOThHaMkA6g";
+
+const options = {
+  headers: {
+    //det der står oppe i 'linket' på hjemmesiden
+    apikey: key,
+  },
+};
+
+const data = await fetch(url, options).then((res) => {
+  return res.json();
+});
+// await betyder den venter med at gøre noget indtil alt er loadet
+// fetch gør at den hender det der står - i dette tilfælde constanteren url og options. options er der key ligger
+// res betyder den henter resultatet som json
+
+console.log(data);
+//skal skrive console.log
+---
+
+<Layout>
+  <h1>Events // Circular Lab</h1>
+  <p>
+    Her finder du en oversigt over events, foredrag, workshops med mere i
+    Circular Lab
+  </p>
+  <main>
+    {data.map((event) => <Event {event} />)}
+    <!-- parameter kommentaren er en ligegyldig advarsel fra supabase  -->
+  </main>
+</Layout>
+
+<style>
+  * {
+    display: grid;
+    justify-content: center; /* horisontalt */
+    align-items: center; /* vertikalt */
+    background-color: #ec6501;
+  }
+
+  h1 {
+    color: #ffffff;
+    font-size: 4vw;
+    /* font-size: max(50px); */
+    padding-top: 20px;
+    padding-bottom: 15px;
+  }
+  p {
+    padding-bottom: 30px;
+    color: #ffffff;
+    font-size: 25px;
+    /* font-size: min(12px);
+      font-size: max(14px); */
+  }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+</style>

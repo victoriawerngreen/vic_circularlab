@@ -1,0 +1,52 @@
+---
+import ListViewButton from "./ListViewButton.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<!-- const location = event.location const title = event.title -->
+<Layout>
+  <div class="div-1_2">
+    <div><img src="../../src/assets/material-connexion-kort.png" alt="" /></div>
+
+    <div class="div_description">
+      <p>location - Circular Lab, GBG.A 129</p>
+      <h2>title - Fremtiden og bæredygtig teknologi</h2>
+      <strong><p>date start end - April 2025 - 14.00 - 16.00</p></strong>
+      <ListViewButton />
+    </div>
+  </div>
+</Layout>
+<style>
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    overflow-clip-margin: content-box;
+    overflow: clip;
+    object-fit: cover;
+  }
+  .div-1_2 {
+    object-fit: cover;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    background-color: #ffffff;
+    width: 100%;
+    /* min-width: 100px;
+    max-width: 700px; */
+    color: #233249;
+  }
+  .div_description {
+    padding-left: 20px;
+    position: relative;
+  }
+
+  @media (min-width: 800px) {
+    .div_description {
+      padding: 20px;
+    }
+  }
+  div {
+    display: block;
+    unicode-bidi: isolate;
+  }
+</style>

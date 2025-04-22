@@ -1,0 +1,161 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout />
+<section class="material_connexion">
+  <img class="lightcircle" src="/src/assets/lightblue.svg" alt="lightcircle" />
+  <div class="grid_3-2">
+    <div>
+      <h1>Adgang til Circular Lab</h1>
+      <p class="time">Circular Lab er åbent 8.30-22.00 hver dag</p>
+      <div class="tekst">
+        <p>
+          Du er velkommen til at benytte lokalet til gruppearbejde eller andet.
+          Tjek kalenderen for at se, om der er planlagt undervisning i lokalet.
+        </p>
+        <p>
+          Der er adgang til Material Connexion igennem labbet, hvis du gerne vil
+          låne prøverne med i undervisning eller andet - så skriv venligst til
+          circular@kea.dk
+        </p>
+        <p>
+          Der vil løbende være udstillinger og cirkulære projekter på display i
+          labbet. Har du yderligere spørgsmål til disse, kan du også række ud
+          til lab manager Nikolaj Storm.
+        </p>
+        <p>
+          Vi arbejder lige nu at oprette KEAs Cirkulære Materiale bibliotek med
+          gode samarbejdspartnere. Materialerne er på udstilling i labbet. Har
+          du spørgsmål til materialerne, indkøb eller virksomhederne, så tag
+          også fat i lab manager Nikolaj Storm for mere information.
+        </p>
+      </div>
+    </div>
+
+    <div class="location_info">
+      <h2>Adresse</h2>
+      <p>
+        Material ConneXion ligger på Guldbergsgade 29N, bygning A, lokale A129.
+        Du finder indgangen igennem biblioteket.
+      </p>
+      <img src="../../src/assets/circular-lab-oversigt.png" alt="billede" />
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    background-color: #ededed;
+    color: #ffffff;
+    padding: 30px;
+    display: grid;
+  }
+
+  .lightcircle {
+    position: absolute;
+    z-index: 0;
+  }
+
+  a {
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #233249;
+
+    background-color: #ffffff;
+    padding: 10px 40px 10px 40px;
+    border-radius: 5px;
+    display: block;
+    /* overstående gør linket linket til et blokelement */
+    max-width: 150px;
+    /* overstående sørger for, at den ikke fylder mere end de 130px*/
+    margin: 0 auto;
+    /* margin på 0 gør den bliver centrerer  vandret */
+  }
+  a:hover {
+    color: #ffffff;
+    background-color: #ec6501;
+  }
+
+  .location_info {
+    background-color: #ffffff;
+    color: #233249;
+    padding: 20px;
+    margin-top: 30px;
+  }
+
+  p,
+  h2 {
+    line-height: 1.3em;
+    margin-bottom: 20px;
+    font-family: Helvetica, sans-serif;
+  }
+
+  .time {
+    font-size: 0.9rem;
+    text-align: center;
+    padding-bottom: 30px;
+  }
+  h1 {
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+
+    /* mobile styling så billeder er under teksten */
+    .grid_3-2 {
+      display: flex;
+      flex-direction: column;
+      z-index: 5;
+    }
+  }
+  /* ------------ media-query ------------ */
+  @media (min-width: 800px) {
+    .grid_3-2 {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 10px;
+    }
+
+    .location_info {
+      max-width: 355px;
+      margin: auto;
+      margin-left: auto;
+    }
+    section {
+      padding-top: 70px;
+      padding-bottom: 70px;
+      padding-left: 80px;
+      padding-right: 80px;
+      color: #233249;
+    }
+
+    a {
+      margin-top: 90px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    /* nedestående er så billeder er først når man er på desktop */
+    @media (min-width: 800px) {
+      .grid_3-2 {
+        display: flex;
+        flex-direction: row;
+      }
+
+      .grid_3-2 > div:first-child {
+        order: 2;
+        /* den har order 2 så teksten kommer som nr r og derfor ligger til højre */
+      }
+
+      .grid_3-2 > .location_info {
+        order: 1;
+        /* den har order 1 så billedet kommer først aka til venstre */
+        margin-right: 40px;
+      }
+    }
+  }
+</style>

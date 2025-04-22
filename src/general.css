@@ -5,7 +5,9 @@
   --orange: #ec6501;
   --white: #ffffff;
   --grey: #ededed;
-  --font: Helvetica Neue;
+  --titles: Helvetica, Arial, sans-serif;
+  --paragraphs: Roboto;
+  /* DOWNLOAD FONT */
 
   --h1d: 50px;
   --h1m: 25px;
@@ -16,4 +18,18 @@
   --p: 20px;
 
   --pcitat: 64px;
+}
+
+p,
+a {
+  font-family: "Roboto", sans-serif;
+}
+
+h1,
+h2 {
+  font-family: Helvetica, sans-serif;
+}
+
+div {
+  font-family: Helvetica, sans-serif;
 }
