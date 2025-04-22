@@ -1,0 +1,58 @@
+---
+//@ts-nocheck
+import CardListView from "../components/CardListView.astro";
+---
+
+<body>
+  <section class="calender">
+    <h1>Events // Circular Lab</h1>
+    <p>
+      Her finder du en oversigt over events, foredrag, workshops med mere i
+      Circular Lab
+    </p>
+
+    <CardListView />
+  </section>
+</body>
+<style>
+  body {
+    margin: 0 30px; /* eller hvor meget du vil */
+  }
+
+  .calender {
+    margin-bottom: 50px;
+  }
+  * {
+    display: grid;
+    justify-content: center; /* horisontalt */
+    align-items: center; /* vertikalt */
+    background-color: #ec6501;
+  }
+
+  h1 {
+    color: #ffffff;
+    font-size: 4vw;
+    /* font-size: max(50px); */
+    padding-top: 20px;
+    padding-bottom: 15px;
+  }
+  p {
+    padding-bottom: 30px;
+    color: #ffffff;
+    font-size: 25px;
+    /* font-size: min(12px);
+    font-size: max(14px); */
+  }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* til desktop */
+  @media (min-width: 800px) {
+    body {
+      margin: 0 80px; /* eller hvor meget du vil */
+    }
+  }
+</style>
