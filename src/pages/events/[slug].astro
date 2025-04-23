@@ -2,6 +2,7 @@
 //@ts-nocheck
 import Layout from "../../layouts/Layout.astro";
 import Footer from "../../components/Footer.astro";
+import Hero from "../../components/Hero.astro";
 
 export async function getStaticPaths() {
   //   const response = await fetch('...');
@@ -32,6 +33,7 @@ const { event } = Astro.props;
 
 <!-- title er det der står som navn i fanebladet i google chrome -->
 <Layout title={event.title}>
+  <Hero />
   <section class="hero">
     <img src="" alt="" />
   </section>
