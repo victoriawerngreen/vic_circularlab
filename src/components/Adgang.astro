@@ -4,33 +4,30 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout />
 <section class="material_connexion">
-  <img class="lightcircle" src="/src/assets/lightblue.svg" alt="lightcircle" />
   <div class="grid_3-2">
-    <div>
+    <div class="tekst">
       <h1>Adgang til Circular Lab</h1>
       <p class="time">Circular Lab er åbent 8.30-22.00 hver dag</p>
-      <div class="tekst">
-        <p>
-          Du er velkommen til at benytte lokalet til gruppearbejde eller andet.
-          Tjek kalenderen for at se, om der er planlagt undervisning i lokalet.
-        </p>
-        <p>
-          Der er adgang til Material Connexion igennem labbet, hvis du gerne vil
-          låne prøverne med i undervisning eller andet - så skriv venligst til
-          circular@kea.dk
-        </p>
-        <p>
-          Der vil løbende være udstillinger og cirkulære projekter på display i
-          labbet. Har du yderligere spørgsmål til disse, kan du også række ud
-          til lab manager Nikolaj Storm.
-        </p>
-        <p>
-          Vi arbejder lige nu at oprette KEAs Cirkulære Materiale bibliotek med
-          gode samarbejdspartnere. Materialerne er på udstilling i labbet. Har
-          du spørgsmål til materialerne, indkøb eller virksomhederne, så tag
-          også fat i lab manager Nikolaj Storm for mere information.
-        </p>
-      </div>
+      <p>
+        Du er velkommen til at benytte lokalet til gruppearbejde eller andet.
+        Tjek kalenderen for at se, om der er planlagt undervisning i lokalet.
+      </p>
+      <p>
+        Der er adgang til Material Connexion igennem labbet, hvis du gerne vil
+        låne prøverne med i undervisning eller andet - så skriv venligst til
+        circular@kea.dk
+      </p>
+      <p>
+        Der vil løbende være udstillinger og cirkulære projekter på display i
+        labbet. Har du yderligere spørgsmål til disse, kan du også række ud til
+        lab manager Nikolaj Storm.
+      </p>
+      <p>
+        Vi arbejder lige nu at oprette KEAs Cirkulære Materiale bibliotek med
+        gode samarbejdspartnere. Materialerne er på udstilling i labbet. Har du
+        spørgsmål til materialerne, indkøb eller virksomhederne, så tag også fat
+        i lab manager Nikolaj Storm for mere information.
+      </p>
     </div>
 
     <div class="location_info">
@@ -47,14 +44,11 @@ import Layout from "../layouts/Layout.astro";
 <style>
   section {
     background-color: #ededed;
-    color: #ffffff;
+    color: #233249;
     padding: 30px;
     display: grid;
-  }
-
-  .lightcircle {
-    position: absolute;
-    z-index: 0;
+    background-image: url("/src/assets/lightblue.svg");
+    background-size: cover;
   }
 
   a {
@@ -85,6 +79,13 @@ import Layout from "../layouts/Layout.astro";
     color: #233249;
     padding: 20px;
     margin-top: 30px;
+    position: relative;
+    z-index: 5;
+  }
+
+  .tekst {
+    position: relative;
+    z-index: 5;
   }
 
   p,
@@ -92,6 +93,9 @@ import Layout from "../layouts/Layout.astro";
     line-height: 1.3em;
     margin-bottom: 20px;
     font-family: Helvetica, sans-serif;
+    position: relative;
+    z-index: 5;
+    font-size: 15px;
   }
 
   .time {
@@ -102,6 +106,9 @@ import Layout from "../layouts/Layout.astro";
   h1 {
     text-align: center;
     font-family: Helvetica, sans-serif;
+    position: relative;
+    z-index: 5;
+    font-size: 30px;
 
     /* mobile styling så billeder er under teksten */
     .grid_3-2 {
@@ -128,7 +135,6 @@ import Layout from "../layouts/Layout.astro";
       padding-bottom: 70px;
       padding-left: 80px;
       padding-right: 80px;
-      color: #233249;
     }
 
     a {

@@ -27,9 +27,23 @@ const { event } = Astro.props;
   }
 
   img {
-    width: 90%;
+    width: 100%;
     height: auto;
+
+    /* nyt fis */
+    aspect-ratio: 1 / 1; /* Sørger for, at billeder er kvadratiske */
+    object-fit: cover; /* Tilpasser billedet, så det udfylder rammen */
   }
+
+  @media (min-width: 800px) {
+    img {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: auto; /* Fjern det kvadratiske format */
+      object-fit: unset; /* Ingen beskæring, billedet vises som det er */
+    }
+  }
+
   .div-1_2 {
     object-fit: cover;
     display: grid;
@@ -43,6 +57,10 @@ const { event } = Astro.props;
     position: relative;
     background-color: white;
     padding: 10px;
+  }
+
+  article {
+    margin: 20px 20px 50px 20px;
   }
 
   a {
@@ -77,8 +95,8 @@ const { event } = Astro.props;
     }
 
     .div-1_2 {
-      width: 130%;
-      margin: 0 100px 0 0;
+      width: 90%;
+      margin: 0 50px 0 50px;
     }
 
     .div_description {
