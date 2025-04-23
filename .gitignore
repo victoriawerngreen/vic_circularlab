@@ -24,4 +24,4 @@ pnpm-debug.log*
 .idea/
 
 # ignorer alle mapper der hedder:
-img/
+
